@@ -36,6 +36,9 @@ namespace Savings_Tracker.UserControls
             newGoal.SavingGoal = Convert.ToInt32(savingAmountTextBox.Text);
             newGoal.Notes = notesTextBox.Text;
 
+            //fire our on goal save event
+            fireOneGoalSaved(newGoal);
+
             cleartextBoxes();
             Visibility = Visibility.Collapsed;
         }
