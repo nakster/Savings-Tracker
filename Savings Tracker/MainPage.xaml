@@ -16,7 +16,8 @@
         </Grid.RowDefinitions>
 
         <!--list view-->
-        <ListView x:Name="GoalListView" Grid.Row="0">
+        <!--GoalList is the property in the MainPageViewModel.cs -->
+        <ListView x:Name="GoalListView" Grid.Row="0"  ItemsSource="{Binding GoalList}">
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -42,12 +43,12 @@
                         </Grid.ColumnDefinitions>
                         <!--name of the goal-->
                         <TextBlock Text="Goal Name: "/>
-                        <TextBlock Grid.Column="1" Text=""/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}"/>
                         <!--last updated-->
-                        <TextBlock Margin="0,10,0,0" Grid.Row="1" Text="Saving Amount: "/>
+                        <TextBlock Margin="0,10,0,0" Grid.Row="1" Text="Last Updated: "/>
                         <TextBlock Grid.Row="1" Grid.Column="1" Text=""/>
                            <!--progress bar-->
-                        <ProgressBar Margin="0,10,0,10" Grid.Row="2" Grid.ColumnSpan="3" IsIndeterminate="False" Height="10" />
+                        <ProgressBar Margin="0,10,0,10" Grid.Row="2" Value="25" Maximum="{Binding SavingGoal}" Grid.ColumnSpan="3" IsIndeterminate="False" Height="10" />
 
                         <Button Grid.Row="3" Grid.Column="0" Content="Add" />
                         <Button Grid.Row="3" Grid.Column="1" Content="Decrease"/>
