@@ -8,6 +8,21 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--Theses are the row definitions-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
 
+        <!--list view-->
+        <ListView Grid.Row="0">
+
+        </ListView>
+        <!--ommandbar-->
+        <!--ClosedDisplayMode minimal means its hidden ...-->
+        <CommandBar Grid.Row="1" ClosedDisplayMode="Minimal">
+            <AppBarButton Icon="Add" Label="Add" />
+        </CommandBar>
+        
     </Grid>
 </Page>
