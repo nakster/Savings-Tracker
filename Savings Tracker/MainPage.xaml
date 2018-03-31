@@ -5,7 +5,7 @@
     xmlns:local="using:Savings_Tracker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:cc="using:GoalsApp.userControls" 
+    xmlns:cc="using:Savings_Tracker.UserControls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -22,8 +22,10 @@
         <!--ommandbar-->
         <!--ClosedDisplayMode minimal means its hidden ...-->
         <CommandBar Grid.Row="1" ClosedDisplayMode="Minimal">
-            <AppBarButton Icon="Add" Label="Add" />
+            <AppBarButton Icon="Add" x:Name="AppBarAddButton" Label="Add" Click="AppBarAddButton_Click" />
         </CommandBar>
-        
+
+        <cc:AddGoalControl x:Name="goalControl" Grid.RowSpan="2" Visibility="Collapsed"/>
+
     </Grid>
 </Page>

@@ -26,5 +26,10 @@ namespace Savings_Tracker
         {
             this.InitializeComponent();
         }
+
+        private void AppBarAddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
