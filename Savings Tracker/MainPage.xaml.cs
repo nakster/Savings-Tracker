@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Savings_Tracker.Model;
+using Savings_Tracker.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -23,6 +24,7 @@ namespace Savings_Tracker
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private MainPageViewModel mainPageViewModel;
         public MainPage()
         {
             this.InitializeComponent();
@@ -37,10 +39,16 @@ namespace Savings_Tracker
             //OnGoalSaved is the event handler 
             goalControl.OnGoalSaved += GoalControl_OnGoalSaved;
 
+            if(mainPageViewModel == null)
+            {
+                mainPageViewModel = new MainPageViewModel();
+                DataContext = mainPageViewModel;
+            }
         }
         //this method is now hooked on this event handler OnGoalSaved
         private void GoalControl_OnGoalSaved(object sender, Model.Goal e)
         {
+            mainPageViewModel.AddNewGoal(e);
            
         }
 
