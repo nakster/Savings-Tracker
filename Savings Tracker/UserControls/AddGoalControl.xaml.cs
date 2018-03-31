@@ -20,6 +20,8 @@ namespace Savings_Tracker.UserControls
 {
     public sealed partial class AddGoalControl : UserControl
     {
+        public event EventHandler<Goal> OnGoalSaved;
+
         public AddGoalControl()
         {
             this.InitializeComponent();
@@ -50,6 +52,11 @@ namespace Savings_Tracker.UserControls
             GoalNameTextBox.Text = string.Empty;
             savingAmountTextBox.Text = string.Empty;
             notesTextBox.Text = string.Empty;
+        }
+
+        private void fireOneGoalSaved(Goal newGoal)
+        {
+            OnGoalSaved?.Invoke(null, newGoal);
         }
     }
 }
