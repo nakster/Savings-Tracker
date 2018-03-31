@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Savings_Tracker.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,6 +28,12 @@ namespace Savings_Tracker.UserControls
         //this method here when clicked will return to the home page 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
+            //create a new goal
+            var newGoal = new Goal();
+            newGoal.Name = GoalNameTextBox.Text;
+            newGoal.SavingGoal = Convert.ToInt32(savingAmountTextBox.Text);
+            newGoal.Notes = notesTextBox.Text;
+
             cleartextBoxes();
             Visibility = Visibility.Collapsed;
         }
