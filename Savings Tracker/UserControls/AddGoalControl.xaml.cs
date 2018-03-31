@@ -24,14 +24,25 @@ namespace Savings_Tracker.UserControls
             this.InitializeComponent();
         }
 
+        //this method here when clicked will return to the home page 
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            cleartextBoxes();
+            Visibility = Visibility.Collapsed;
         }
-
+        //this here will cancel and clear the boxes and return to the homepage
         private void cancelBtn_Click(object sender, RoutedEventArgs e)
         {
+            Visibility = Visibility.Collapsed;
+            cleartextBoxes();
 
+        }
+        // this here clears all the boxes
+        private void cleartextBoxes()
+        {
+            GoalNameTextBox.Text = string.Empty;
+            savingAmountTextBox.Text = string.Empty;
+            notesTextBox.Text = string.Empty;
         }
     }
 }
