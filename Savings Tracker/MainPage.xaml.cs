@@ -34,10 +34,11 @@ namespace Savings_Tracker
         {
             //when we click goalcontrol which is the add button it fires the onGoalsaved event 
             //which inturn starts a new method
+            //OnGoalSaved is the event handler 
             goalControl.OnGoalSaved += GoalControl_OnGoalSaved;
 
         }
-
+        //this method is now hooked on this event handler OnGoalSaved
         private void GoalControl_OnGoalSaved(object sender, Model.Goal e)
         {
            
