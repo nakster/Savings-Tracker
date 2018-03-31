@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Savings_Tracker.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,7 +26,23 @@ namespace Savings_Tracker
         public MainPage()
         {
             this.InitializeComponent();
+            Loaded += MainPage_Loaded;
+
         }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //when we click goalcontrol which is the add button it fires the onGoalsaved event 
+            //which inturn starts a new method
+            goalControl.OnGoalSaved += GoalControl_OnGoalSaved;
+
+        }
+
+        private void GoalControl_OnGoalSaved(object sender, Model.Goal e)
+        {
+           
+        }
+
         //this method makes the addgoalcontrol page visible 
         private void AppBarAddButton_Click(object sender, RoutedEventArgs e)
         {
