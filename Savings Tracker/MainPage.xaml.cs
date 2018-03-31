@@ -26,10 +26,10 @@ namespace Savings_Tracker
         {
             this.InitializeComponent();
         }
-
+        //this method makes the addgoalcontrol page visible 
         private void AppBarAddButton_Click(object sender, RoutedEventArgs e)
         {
-
+            goalControl.Visibility = Visibility.Visible;
         }
     }
 }

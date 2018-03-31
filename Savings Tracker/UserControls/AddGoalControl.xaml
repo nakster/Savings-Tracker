@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+    <Grid Background="#3F729B">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -18,23 +18,23 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Row="0">
-            <TextBlock Text="Goal name: "/>
-            <TextBox x:Name="GoalNameTextBox"/>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Background="#ffe0b2"> 
+            <TextBlock Text="Goal name: " />
+            <TextBox x:Name="GoalNameTextBox" Background="#f9f9f9" />
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1">
+        <StackPanel Orientation="Vertical" Grid.Row="1" Background="#ffcc80">
             <TextBlock Text="Savings Amount: "/>
-            <TextBox x:Name="savingAmountTextBox"/>
+            <TextBox x:Name="savingAmountTextBox" Background="#f9f9f9"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="2">
+        <StackPanel Orientation="Vertical" Grid.Row="2" Background="#ffcc80" >
             <TextBlock Text="Notes"/>
-            <TextBox x:Name="notesTextBox" Height="100"/>
+            <TextBox x:Name="notesTextBox" Height="100" Background="#f9f9f9"/>
         </StackPanel>
 
-        <Button x:Name="saveBtn" Grid.Row="3" Content="Save" HorizontalAlignment="Left" Click="saveBtn_Click"/>
-        <Button x:Name="cancelBtn" Grid.Row="3" Content="Cancel" HorizontalAlignment="Right" Click="cancelBtn_Click"/>
+        <Button Background="#f9f9f9" x:Name="saveBtn" Grid.Row="3" Content="Save" HorizontalAlignment="Left" Click="saveBtn_Click"/>
+        <Button Background="#f9f9f9" x:Name="cancelBtn" Grid.Row="3" Content="Cancel" HorizontalAlignment="Right" Click="cancelBtn_Click"/>
 
     </Grid>
 </UserControl>

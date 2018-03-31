@@ -21,7 +21,7 @@
         </ListView>
         <!--ommandbar-->
         <!--ClosedDisplayMode minimal means its hidden ...-->
-        <CommandBar Grid.Row="1" ClosedDisplayMode="Minimal">
+        <CommandBar Grid.Row="1" ClosedDisplayMode="Minimal" Background="#428bca">
             <AppBarButton Icon="Add" x:Name="AppBarAddButton" Label="Add" Click="AppBarAddButton_Click" />
         </CommandBar>
 
