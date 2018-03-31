@@ -103,6 +103,7 @@
     <Compile Include="UserControls\AddGoalControl.xaml.cs">
       <DependentUpon>AddGoalControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
