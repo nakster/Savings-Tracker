@@ -111,6 +111,9 @@
     <Compile Include="UserControls\AddGoalControl.xaml.cs">
       <DependentUpon>AddGoalControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AddTransactionControl.xaml.cs">
+      <DependentUpon>AddTransactionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
   </ItemGroup>
@@ -140,6 +143,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\AddGoalControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AddTransactionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,6 +13,7 @@ namespace Savings_Tracker.ViewModel
     {
         public List<Goal> GoalList
         {
+            //gets all the records from the datacontexthelper page
             get { return DataContextHelper.GetTable<Goal>(); }
           
         }

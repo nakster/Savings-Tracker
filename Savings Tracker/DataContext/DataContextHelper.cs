@@ -37,7 +37,7 @@ namespace Savings_Tracker.DataContext
             }
 
         }
-
+        //gets all the records
         public static List<T> GetTable<T>() where T : class
         {
             using (var db = new GoalDataContext())
