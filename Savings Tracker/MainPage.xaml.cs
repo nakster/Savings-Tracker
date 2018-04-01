@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Savings_Tracker.DataContext;
 using Savings_Tracker.Model;
 using Savings_Tracker.ViewModel;
 using Windows.Foundation;
@@ -38,6 +39,10 @@ namespace Savings_Tracker
             //which inturn starts a new method
             //OnGoalSaved is the event handler 
             goalControl.OnGoalSaved += GoalControl_OnGoalSaved;
+            //TransactionControl name of the button
+            TransactionControl.TransactionSavedFinished += TransactionControl_TransactionSavedFinished;
+
+            DataContextHelper.DeleteAllGoals();
 
             if(mainPageViewModel == null)
             {
@@ -45,6 +50,12 @@ namespace Savings_Tracker
                 DataContext = mainPageViewModel;
             }
         }
+
+        private void TransactionControl_TransactionSavedFinished(object sender, EventArgs e)
+        {
+            GoalListView.ItemsSource = mainPageViewModel.GoalList;
+        }
+
         //this method is now hooked on this event handler OnGoalSaved
         private void GoalControl_OnGoalSaved(object sender, Model.Goal e)
         {

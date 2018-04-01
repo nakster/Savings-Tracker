@@ -35,20 +35,32 @@ namespace Savings_Tracker.UserControls
 
         private readonly DependencyProperty GoalIdProperty = DependencyProperty.Register("GoalId", typeof(int), typeof(AddTransactionControl), null);
 
+        public event EventHandler TransactionSavedFinished;
+        private void FireTransactionSavedFinished()
+        {
+            if(TransactionSavedFinished != null)
+            {
+                TransactionSavedFinished(null, null);
+            }
+        }
+
+
         public AddTransactionControl()
         {
             this.InitializeComponent();
         }
 
 
-        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        private async void ConfirmButton_ClickAsync(object sender, RoutedEventArgs e)
         {
             var NewTransaction = new Transaction();
             NewTransaction.Date = DateTime.Now;
             NewTransaction.Amount = Convert.ToDecimal(AmountTextBox.Text);
             NewTransaction.GoalId = GoalId;
 
-            DataContextHelper.AddRecord<Transaction>(NewTransaction);
+            await DataContextHelper.AddRecord<Transaction>(NewTransaction);
+            //fire this event 
+            FireTransactionSavedFinished();
             ClearFields();
             HideControl();
         }

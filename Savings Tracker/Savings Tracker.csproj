@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="ButtonCommands\ButtonCommand.cs" />
     <Compile Include="Converter\BoolVisabilityConverter.cs" />
+    <Compile Include="Converter\DecimalIntConverter.cs" />
     <Compile Include="DataContext\DataContextHelper.cs" />
     <Compile Include="DataContext\GoalDataContext.cs" />
     <Compile Include="MainPage.xaml.cs">
