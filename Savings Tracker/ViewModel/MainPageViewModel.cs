@@ -43,6 +43,23 @@ namespace Savings_Tracker.ViewModel
           
         }
 
+        /// <summary>
+        /// here goes the int id 
+        /// </summary>
+
+        private int _goalId;
+        public int GoalId
+        {
+            get { return _goalId; }
+            set
+            {
+                _goalId = value;
+                NotifyPropertyChanged("GoalId");
+            }
+
+        }
+
+
         public ButtonCommand TransactionButtonCommand { get; set; }
         public ButtonCommand GoalButtonCommand { get; set; }
 
