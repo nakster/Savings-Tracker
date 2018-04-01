@@ -11,6 +11,18 @@ namespace Savings_Tracker.ViewModel
 {
     public class MainPageViewModel: BaseViewModel
     {
+        //this controls the visability of the addtransaction page 
+        private bool _showTransactionControl = false;
+        public bool ShowTransactionControl
+        {
+            get { return _showTransactionControl; }
+            set
+            {
+                _showTransactionControl = value;
+                NotifyPropertyChanged("ShowTransactionControl");
+            }
+        }
+
         public List<Goal> GoalList
         {
             //gets all the records from the datacontexthelper page
