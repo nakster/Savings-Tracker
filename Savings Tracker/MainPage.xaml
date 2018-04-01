@@ -65,6 +65,7 @@
         </CommandBar>
 
         <cc:AddGoalControl x:Name="goalControl" Grid.RowSpan="2" Visibility="Collapsed"/>
+        <cc:AddTransactionControl x:Name="TransactionControl" Grid.RowSpan="2" />
 
     </Grid>
 </Page>
