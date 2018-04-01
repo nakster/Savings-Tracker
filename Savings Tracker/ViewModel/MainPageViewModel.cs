@@ -1,4 +1,5 @@
-﻿using Savings_Tracker.DataContext;
+﻿using Savings_Tracker.ButtonCommands;
+using Savings_Tracker.DataContext;
 using Savings_Tracker.Model;
 using System;
 using System.Collections.Generic;
@@ -30,14 +31,22 @@ namespace Savings_Tracker.ViewModel
           
         }
 
+        public ButtonCommand TransactionButtonCommand { get; set; }
+      
         public MainPageViewModel()
         {
+            TransactionButtonCommand = new ButtonCommand(ChangeTransactionVisability);
         }
 
         public void AddNewGoal(Goal newGoal)
         {
             //add item to our goal list
             DataContextHelper.AddRecord<Goal>(newGoal);
+        }
+
+        private void ChangeTransactionVisability()
+        {
+            ShowTransactionControl = true;
         }
     }
 }

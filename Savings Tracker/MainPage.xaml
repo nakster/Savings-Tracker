@@ -6,7 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cc="using:Savings_Tracker.UserControls"
+    xmlns:Converter="using:Savings_Tracker.Converter"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <Converter:BoolVisabilityConverter x:Key="BoolVisability" />
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!--Theses are the row definitions-->
@@ -50,8 +55,8 @@
                            <!--progress bar-->
                         <ProgressBar Margin="0,10,0,10" Grid.Row="2" Value="{Binding Balance}" Maximum="{Binding SavingGoal}" Grid.ColumnSpan="3" IsIndeterminate="False" Height="10" />
 
-                        <Button Grid.Row="3" Grid.Column="0" Content="Add" />
-                        <Button Grid.Row="3" Grid.Column="1" Content="Decrease"/>
+                        <Button Grid.Row="3" Grid.Column="0" Content="Add" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }"/>
+                        <Button Grid.Row="3" Grid.Column="1" Content="Decrease" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }"/>
                         <Button Grid.Row="3" Grid.Column="2" Content="Edit"/>
 
                     </Grid>
@@ -65,7 +70,7 @@
         </CommandBar>
 
         <cc:AddGoalControl x:Name="goalControl" Grid.RowSpan="2" Visibility="Collapsed"/>
-        <cc:AddTransactionControl x:Name="TransactionControl" Grid.RowSpan="2" />
+        <cc:AddTransactionControl x:Name="TransactionControl" Grid.RowSpan="2" Visibility="{Binding ShowTransactionControl, Converter={StaticResource BoolVisability}}"/>
 
     </Grid>
 </Page>
