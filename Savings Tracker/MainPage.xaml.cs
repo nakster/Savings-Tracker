@@ -41,8 +41,8 @@ namespace Savings_Tracker
             goalControl.OnGoalSaved += GoalControl_OnGoalSaved;
             //TransactionControl name of the button
             TransactionControl.TransactionSavedFinished += TransactionControl_TransactionSavedFinished;
-
-            DataContextHelper.DeleteAllGoals();
+            //use this to clear all the data from sqlite 
+            //DataContextHelper.DeleteAllGoals();
 
             if(mainPageViewModel == null)
             {
