@@ -9,7 +9,22 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+    <Grid Background="#3F729B">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Foreground="white" Style="{StaticResource PurpleStyle}" Text="Amount: " />
+        <TextBox x:Name="AmountTextBox" Background="#f9f9f9" Grid.Column="1"/>
+
+        <Button x:Name="ConfirmButton" Background="#f9f9f9" Click="ConfirmButton_Click"  Grid.Row="1"  Content="Confirm"/>
+        <Button x:Name="CancelButton"  Background="#f9f9f9" Click="CancelButton_Click"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Content="Cancel"/>
 
     </Grid>
 </UserControl>
