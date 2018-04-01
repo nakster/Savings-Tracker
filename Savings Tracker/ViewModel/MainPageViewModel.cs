@@ -19,7 +19,6 @@ namespace Savings_Tracker.ViewModel
 
         public MainPageViewModel()
         {
-            _goalList = new ObservableCollection<Goal>();
         }
 
         public void AddNewGoal(Goal newGoal)

@@ -35,6 +35,8 @@ namespace Savings_Tracker.UserControls
             newGoal.Name = GoalNameTextBox.Text;
             newGoal.SavingGoal = Convert.ToInt32(savingAmountTextBox.Text);
             newGoal.Notes = notesTextBox.Text;
+            newGoal.Date = DateTime.Now;
+            newGoal.Balance = 0;
 
             //fire our on goal save event
             fireOneGoalSaved(newGoal);

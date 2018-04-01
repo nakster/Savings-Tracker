@@ -46,9 +46,9 @@
                         <TextBlock Grid.Column="1" Text="{Binding Name}"/>
                         <!--last updated-->
                         <TextBlock Margin="0,10,0,0" Grid.Row="1" Text="Last Updated: "/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text=""/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Date}"/>
                            <!--progress bar-->
-                        <ProgressBar Margin="0,10,0,10" Grid.Row="2" Value="25" Maximum="{Binding SavingGoal}" Grid.ColumnSpan="3" IsIndeterminate="False" Height="10" />
+                        <ProgressBar Margin="0,10,0,10" Grid.Row="2" Value="{Binding Balance}" Maximum="{Binding SavingGoal}" Grid.ColumnSpan="3" IsIndeterminate="False" Height="10" />
 
                         <Button Grid.Row="3" Grid.Column="0" Content="Add" />
                         <Button Grid.Row="3" Grid.Column="1" Content="Decrease"/>
