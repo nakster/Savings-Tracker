@@ -51,7 +51,13 @@ namespace Savings_Tracker.UserControls
             }
         }
 
+        private void SetFields()
+        {
+            if(Action == GoalAction.Update)
+            {
 
+            }
+        }
         public AddGoalControl()
         {
             this.InitializeComponent();
