@@ -70,7 +70,7 @@
         </CommandBar>
 
         <cc:AddGoalControl x:Name="goalControl" Grid.RowSpan="2" Visibility="Collapsed"/>
-        <cc:AddTransactionControl x:Name="TransactionControl" Grid.RowSpan="2" Visibility="{Binding ShowTransactionControl, Converter={StaticResource BoolVisability}}"/>
+        <cc:AddTransactionControl x:Name="TransactionControl" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="{Binding ShowTransactionControl, Converter={StaticResource BoolVisability}}"/>
 
     </Grid>
 </Page>

@@ -21,25 +21,32 @@ namespace Savings_Tracker.UserControls
 {
     public sealed partial class AddTransactionControl : UserControl
     {
-        private int _goalid;
+        public int GoalId
+        {
+            get
+            {
+                return (int)GetValue(GoalIdProperty);
+            }
+            set
+            {
+                SetValue(GoalIdProperty, value);
+            }
+        }
+
+        private readonly DependencyProperty GoalIdProperty = DependencyProperty.Register("GoalId", typeof(int), typeof(AddTransactionControl), null);
 
         public AddTransactionControl()
         {
             this.InitializeComponent();
         }
 
-        private void SetGoalId(int id)
-        {
-            _goalid = id;
-
-        }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             var NewTransaction = new Transaction();
             NewTransaction.Date = DateTime.Now;
-            NewTransaction.Amount = Convert.ToInt32(AmountTextBox.Text);
-            NewTransaction.GoalId = _goalid;
+            NewTransaction.Amount = Convert.ToDecimal(AmountTextBox.Text);
+            NewTransaction.GoalId = GoalId;
 
             DataContextHelper.AddRecord<Transaction>(NewTransaction);
             ClearFields();
