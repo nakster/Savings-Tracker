@@ -1,5 +1,6 @@
 ﻿using Savings_Tracker.ButtonCommands;
 using Savings_Tracker.DataContext;
+using Savings_Tracker.Enums;
 using Savings_Tracker.Model;
 using System;
 using System.Collections.Generic;
@@ -59,14 +60,27 @@ namespace Savings_Tracker.ViewModel
 
         }
 
+        //create a property for the enum
+        private GoalAction _goalAction = GoalAction.Create;
+        public GoalAction GoalAction
+        {
+            get { return _goalAction; }
+            set
+            {
+                _goalAction = value;
+                NotifyPropertyChanged("GoalAction");
+            }
+        }
 
         public ButtonCommand TransactionButtonCommand { get; set; }
         public ButtonCommand GoalButtonCommand { get; set; }
+        public ButtonCommand EditButtonCommand { get; set; }
 
         public MainPageViewModel()
         {
             TransactionButtonCommand = new ButtonCommand(ChangeTransactionVisability);
             GoalButtonCommand = new ButtonCommand(ChangeGoalVisability);
+            EditButtonCommand = new ButtonCommand(EditGoal);
         }
 
         private void ChangeGoalVisability(object parameter)
@@ -74,10 +88,10 @@ namespace Savings_Tracker.ViewModel
             ShowGoalControl = true;
         }
 
-        public void AddNewGoal(Goal newGoal)
+        public async void AddNewGoalAsync(Goal newGoal)
         {
             //add item to our goal list
-            DataContextHelper.AddRecord<Goal>(newGoal);
+            await DataContextHelper.AddRecord<Goal>(newGoal);
         }
 
         private void ChangeTransactionVisability(object parameter)
@@ -85,6 +99,16 @@ namespace Savings_Tracker.ViewModel
             var goal = parameter as Goal;
             GoalId = goal.GoalId;
             ShowTransactionControl = true;
+        }
+
+        //bind to the edit button in the xaml
+        private void EditGoal(object parameter)
+        {
+            var goal = parameter as Goal;
+            GoalId = goal.GoalId;
+            this.GoalAction = GoalAction.Update;
+
+            ShowGoalControl = true;
         }
     }
 }

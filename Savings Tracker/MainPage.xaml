@@ -58,7 +58,7 @@
 
                         <Button Grid.Row="3" Grid.Column="0" Content="Add" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
                         <Button Grid.Row="3" Grid.Column="1" Content="Decrease" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
-                        <Button Grid.Row="3" Grid.Column="2" Content="Edit"/>
+                        <Button Grid.Row="3" Grid.Column="2" Content="Edit" Command="{Binding DataContext.EditButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
 
                     </Grid>
                 </DataTemplate>
@@ -71,7 +71,7 @@
         </CommandBar>
 
         <!--mode two ways means that it turns it into false when collapsed -->
-        <cc:AddGoalControl x:Name="goalControl" Grid.RowSpan="2" Visibility="Collapsed"/>
+        <cc:AddGoalControl x:Name="goalControl" Action="{Binding GoalAction}" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="Collapsed"/>
         <cc:AddTransactionControl x:Name="TransactionControl" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="{Binding ShowTransactionControl, Converter={StaticResource BoolVisability}, Mode=TwoWay}"/>
 
     </Grid>

@@ -1,4 +1,5 @@
-﻿using Savings_Tracker.Model;
+﻿using Savings_Tracker.Enums;
+using Savings_Tracker.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +22,35 @@ namespace Savings_Tracker.UserControls
     public sealed partial class AddGoalControl : UserControl
     {
         public event EventHandler<Goal> OnGoalSaved;
+
+
+        private readonly DependencyProperty GoalIdProperty = DependencyProperty.Register("GoalId", typeof(int), typeof(AddGoalControl), null);
+        public int GoalId
+        {
+            get
+            {
+                return (int)GetValue(GoalIdProperty);
+            }
+            set
+            {
+                SetValue(GoalIdProperty, value);
+            }
+        }
+
+        /////
+        private readonly DependencyProperty ActionProperty = DependencyProperty.Register("Action", typeof(GoalAction), typeof(AddGoalControl), null);
+        public GoalAction Action
+        {
+            get
+            {
+                return (GoalAction)GetValue(ActionProperty);
+            }
+            set
+            {
+                SetValue(ActionProperty, value);
+            }
+        }
+
 
         public AddGoalControl()
         {

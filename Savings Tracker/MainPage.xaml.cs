@@ -59,7 +59,7 @@ namespace Savings_Tracker
         //this method is now hooked on this event handler OnGoalSaved
         private void GoalControl_OnGoalSaved(object sender, Model.Goal e)
         {
-            mainPageViewModel.AddNewGoal(e);
+            mainPageViewModel.AddNewGoalAsync(e);
             GoalListView.ItemsSource = mainPageViewModel.GoalList;
 
         }

@@ -100,6 +100,7 @@
     <Compile Include="Converter\DecimalIntConverter.cs" />
     <Compile Include="DataContext\DataContextHelper.cs" />
     <Compile Include="DataContext\GoalDataContext.cs" />
+    <Compile Include="Enums\Enumeration.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
