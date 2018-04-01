@@ -1,4 +1,5 @@
-﻿using Savings_Tracker.Model;
+﻿using Savings_Tracker.DataContext;
+using Savings_Tracker.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,15 +11,10 @@ namespace Savings_Tracker.ViewModel
 {
     public class MainPageViewModel: BaseViewModel
     {
-        private ObservableCollection<Goal> _goalList;
-        public ObservableCollection<Goal> GoalList
+        public List<Goal> GoalList
         {
-            get { return _goalList; }
-            set
-            {
-                _goalList = value;
-                NotifyPropertyChanged("GoalList");
-            }
+            get { return DataContextHelper.GetTable<Goal>(); }
+          
         }
 
         public MainPageViewModel()
@@ -29,7 +25,7 @@ namespace Savings_Tracker.ViewModel
         public void AddNewGoal(Goal newGoal)
         {
             //add item to our goal list
-            GoalList.Add(newGoal);
+            DataContextHelper.AddRecord<Goal>(newGoal);
         }
     }
 }

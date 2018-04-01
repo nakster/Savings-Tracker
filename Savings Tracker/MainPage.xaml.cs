@@ -49,7 +49,8 @@ namespace Savings_Tracker
         private void GoalControl_OnGoalSaved(object sender, Model.Goal e)
         {
             mainPageViewModel.AddNewGoal(e);
-           
+            GoalListView.ItemsSource = mainPageViewModel.GoalList;
+
         }
 
         //this method makes the addgoalcontrol page visible 
