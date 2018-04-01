@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Savings_Tracker.DataContext;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +32,19 @@ namespace Savings_Tracker
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (var db = new GoalDataContext())
+            {
+                try
+                {
+                    db.Database.Migrate();
+                }
+                catch
+                {
+
+                }
+
+            }
         }
 
         /// <summary>
