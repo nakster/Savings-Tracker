@@ -14,11 +14,13 @@ namespace Savings_Tracker.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int GoalId { get; set; }
         public string Name { get; set; }
         public decimal SavingGoal { get; set; }
         public string Notes { get; set; }
         public DateTime Date { get; set; }
         public decimal Balance { get; set; }
+
+        public List<Transaction> Transactions { get; set; }
     }
 }
