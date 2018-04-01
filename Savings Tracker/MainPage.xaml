@@ -55,8 +55,8 @@
                            <!--progress bar-->
                         <ProgressBar Margin="0,10,0,10" Grid.Row="2" Value="{Binding Balance}" Maximum="{Binding SavingGoal}" Grid.ColumnSpan="3" IsIndeterminate="False" Height="10" />
 
-                        <Button Grid.Row="3" Grid.Column="0" Content="Add" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }"/>
-                        <Button Grid.Row="3" Grid.Column="1" Content="Decrease" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }"/>
+                        <Button Grid.Row="3" Grid.Column="0" Content="Add" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
+                        <Button Grid.Row="3" Grid.Column="1" Content="Decrease" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
                         <Button Grid.Row="3" Grid.Column="2" Content="Edit"/>
 
                     </Grid>
@@ -69,8 +69,9 @@
             <AppBarButton Icon="Add" x:Name="AppBarAddButton" Label="Add" Click="AppBarAddButton_Click" />
         </CommandBar>
 
+        <!--mode two ways means that it turns it into false when collapsed -->
         <cc:AddGoalControl x:Name="goalControl" Grid.RowSpan="2" Visibility="Collapsed"/>
-        <cc:AddTransactionControl x:Name="TransactionControl" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="{Binding ShowTransactionControl, Converter={StaticResource BoolVisability}}"/>
+        <cc:AddTransactionControl x:Name="TransactionControl" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="{Binding ShowTransactionControl, Converter={StaticResource BoolVisability}, Mode=TwoWay}"/>
 
     </Grid>
 </Page>

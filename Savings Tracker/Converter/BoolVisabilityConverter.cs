@@ -29,7 +29,22 @@ namespace Savings_Tracker.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            throw new NotImplementedException();
+           if(value is Visibility)
+            {
+                var visibilityState = (Visibility)value;
+
+                if(visibilityState == Visibility.Visible)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+            return false;
         }
     }
 }

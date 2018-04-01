@@ -69,7 +69,7 @@ namespace Savings_Tracker.ViewModel
             GoalButtonCommand = new ButtonCommand(ChangeGoalVisability);
         }
 
-        private void ChangeGoalVisability()
+        private void ChangeGoalVisability(object parameter)
         {
             ShowGoalControl = true;
         }
@@ -80,8 +80,10 @@ namespace Savings_Tracker.ViewModel
             DataContextHelper.AddRecord<Goal>(newGoal);
         }
 
-        private void ChangeTransactionVisability()
+        private void ChangeTransactionVisability(object parameter)
         {
+            var goal = parameter as Goal;
+            GoalId = goal.GoalId;
             ShowTransactionControl = true;
         }
     }

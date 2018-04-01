@@ -11,9 +11,9 @@ namespace Savings_Tracker.ButtonCommands
     {
         public event EventHandler CanExecuteChanged;
 
-        Action _action;
+        Action<object> _action;
 
-        public ButtonCommand(Action action)
+        public ButtonCommand(Action<object> action)
         {
             _action = action;
         }
@@ -25,7 +25,7 @@ namespace Savings_Tracker.ButtonCommands
 
         public void Execute(object parameter)
         {
-            _action();
+            _action(parameter);
         }
     }
 }
