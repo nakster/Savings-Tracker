@@ -99,6 +99,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180401163443_MyFirstMigration.cs" />
+    <Compile Include="Migrations\20180401163443_MyFirstMigration.designer.cs">
+      <DependentUpon>20180401163443_MyFirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\GoalDataContextModelSnapshot.cs" />
     <Compile Include="Model\Goal.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
