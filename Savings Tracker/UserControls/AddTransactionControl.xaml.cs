@@ -48,8 +48,9 @@ namespace Savings_Tracker.UserControls
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+           
             ClearFields();
-
+            HideControl();
         }
 
         private void ClearFields()

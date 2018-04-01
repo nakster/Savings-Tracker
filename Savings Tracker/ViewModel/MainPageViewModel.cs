@@ -24,6 +24,18 @@ namespace Savings_Tracker.ViewModel
             }
         }
 
+        //this controls the visability of the addtransaction page 
+        private bool _showGoalControl = false;
+        public bool ShowGoalControl
+        {
+            get { return _showGoalControl; }
+            set
+            {
+                _showGoalControl = value;
+                NotifyPropertyChanged("ShowGoalControl");
+            }
+        }
+
         public List<Goal> GoalList
         {
             //gets all the records from the datacontexthelper page
@@ -32,10 +44,17 @@ namespace Savings_Tracker.ViewModel
         }
 
         public ButtonCommand TransactionButtonCommand { get; set; }
-      
+        public ButtonCommand GoalButtonCommand { get; set; }
+
         public MainPageViewModel()
         {
             TransactionButtonCommand = new ButtonCommand(ChangeTransactionVisability);
+            GoalButtonCommand = new ButtonCommand(ChangeGoalVisability);
+        }
+
+        private void ChangeGoalVisability()
+        {
+            ShowGoalControl = true;
         }
 
         public void AddNewGoal(Goal newGoal)
