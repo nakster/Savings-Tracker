@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Savings_Tracker.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Savings_Tracker.Model
 {
-    public class Transaction
+    public class Transaction : ITableItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,5 +20,10 @@ namespace Savings_Tracker.Model
 
         [ForeignKey("GoalId")]
         public Goal Goal { get; set; }
+
+        public int GetId()
+        {
+            return Id;
+        }
     }
 }

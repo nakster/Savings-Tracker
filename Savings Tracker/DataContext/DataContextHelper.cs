@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Savings_Tracker.Interfaces;
 using Savings_Tracker.Model;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,17 @@ namespace Savings_Tracker.DataContext
                 }
 
             }
+        }
+
+        public static T GetItem<T>(int id) where T : class
+        {
+            var item = default(T);
+            using (var db = new GoalDataContext())
+            {
+                db.Set<T>().ToList().FirstOrDefault(x => ((ITableItem)x).GetId() == id);
+            }
+
+            return item;
         }
     }
 }

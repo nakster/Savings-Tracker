@@ -1,4 +1,5 @@
-﻿using Savings_Tracker.Enums;
+﻿using Savings_Tracker.DataContext;
+using Savings_Tracker.Enums;
 using Savings_Tracker.Model;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Savings_Tracker.UserControls
         public event EventHandler<Goal> OnGoalSaved;
 
 
-        private readonly DependencyProperty GoalIdProperty = DependencyProperty.Register("GoalId", typeof(int), typeof(AddGoalControl), null);
+        private static readonly DependencyProperty GoalIdProperty = DependencyProperty.Register("GoalId", typeof(int), typeof(AddGoalControl), null);
         public int GoalId
         {
             get
@@ -38,7 +39,7 @@ namespace Savings_Tracker.UserControls
         }
 
         /////
-        private readonly DependencyProperty ActionProperty = DependencyProperty.Register("Action", typeof(GoalAction), typeof(AddGoalControl), null);
+        private static readonly DependencyProperty ActionProperty = DependencyProperty.Register("Action", typeof(GoalAction), typeof(AddGoalControl), new PropertyMetadata(GoalAction.Create, SetFields));
         public GoalAction Action
         {
             get
@@ -48,14 +49,20 @@ namespace Savings_Tracker.UserControls
             set
             {
                 SetValue(ActionProperty, value);
+                
             }
         }
 
-        private void SetFields()
+        private static void SetFields(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            if(Action == GoalAction.Update)
+            if(((GoalAction)e.NewValue) == GoalAction.Update)
             {
+                var goalControlClass = o as AddGoalControl;
+                var goal = DataContextHelper.GetItem<Goal>(goalControlClass.GoalId);
 
+                goalControlClass.GoalNameTextBox.Text = goal.Name;
+                goalControlClass.notesTextBox.Text = goal.Notes;
+                goalControlClass.savingAmountTextBox.Text = goal.SavingGoal.ToString();
             }
         }
         public AddGoalControl()

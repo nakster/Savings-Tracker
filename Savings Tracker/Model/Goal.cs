@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Savings_Tracker.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +11,7 @@ namespace Savings_Tracker.Model
 {
     //make it public so you can access it 
     [Table("Goal")]
-    public class Goal
+    public class Goal : ITableItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,5 +23,10 @@ namespace Savings_Tracker.Model
         public decimal Balance { get; set; }
 
         public List<Transaction> Transactions { get; set; }
+
+        public int GetId()
+        {
+            return GoalId;
+        }
     }
 }
