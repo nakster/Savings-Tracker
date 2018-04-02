@@ -84,11 +84,22 @@ namespace Savings_Tracker.ViewModel
             EditButtonCommand = new ButtonCommand(EditGoal);
             DeleteButtonCommand = new ButtonCommand(DeleteGoalAsync);
         }
-        //deletes handler
+        //deletes goal
         private async void DeleteGoalAsync(object parameter)
         {
             var goal = parameter as Goal;
             await DataContextHelper.DeleteItem<Goal>(goal);
+            FireOnDeleteFinished();
+        }
+
+        //event handler
+        public event EventHandler OnDeleteFinished;
+        private void FireOnDeleteFinished()
+        {
+            if(OnDeleteFinished != null)
+            {
+                OnDeleteFinished(null, null);
+            }
         }
 
         private void ChangeGoalVisability(object parameter)
