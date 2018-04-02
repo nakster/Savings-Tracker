@@ -47,6 +47,13 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+                        
+                        <!--create a flyout-->
+                        <FlyoutBase.AttachedFlyout>
+                            <Flyout>
+                                <Button Content="Delete"/>
+                            </Flyout>
+                        </FlyoutBase.AttachedFlyout>
                         <!--name of the goal-->
                         <TextBlock Text="Goal Name: "/>
                         <TextBlock Grid.Column="1" Text="{Binding Name}"/>
