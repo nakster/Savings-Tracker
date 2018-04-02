@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ScrollViewer Background="white" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
+    <ScrollViewer Background="#f9f9f9" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -43,7 +43,7 @@
             <!--List of transactions-->
             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" >
                 <TextBlock Text="Previous Transactions" FontWeight="Bold"/>
-                <ListView ItemsSource="{Binding Transactions}">
+                <ListView Background="#428bca" ItemsSource="{Binding Transactions}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
