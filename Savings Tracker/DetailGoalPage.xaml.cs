@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Savings_Tracker.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,21 @@ namespace Savings_Tracker
     /// </summary>
     public sealed partial class DetailGoalPage : Page
     {
+        DetailGoalViewModel _detailGoalViewModel;
         public DetailGoalPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var Id = (int)e.Parameter;
+           if(_detailGoalViewModel == null)
+            {
+                _detailGoalViewModel = new DetailGoalViewModel(Id);
+            }
+
+            DataContext = _detailGoalViewModel.CurrentGoal;
         }
     }
 }

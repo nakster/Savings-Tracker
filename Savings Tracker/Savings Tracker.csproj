@@ -123,6 +123,7 @@
       <DependentUpon>AddTransactionControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\DetailGoalViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

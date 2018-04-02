@@ -23,7 +23,7 @@
 
         <!--list view-->
         <!--GoalList is the property in the MainPageViewModel.cs -->
-        <ListView x:Name="GoalListView" Grid.Row="0"  ItemsSource="{Binding GoalList}">
+        <ListView x:Name="GoalListView" Grid.Row="0"  ItemsSource="{Binding GoalList}" IsTapEnabled="True" IsItemClickEnabled="True" ItemClick="GoalListView_ItemClick">
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">

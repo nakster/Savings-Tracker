@@ -22,21 +22,21 @@
             
             <!--Goal Name-->
             <TextBlock Text="Name:"/>
-            <TextBlock Grid.Column="1" Text="{Binding}"/>
+            <TextBlock Grid.Column="1" Text="{Binding Name}"/>
             
             <!--goal amounts and total-->
             <TextBlock Grid.Row="1" Text="Total:"/>
             <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                <TextBlock Text="{Binding}"/>
+                <TextBlock Text="{Binding Balance}"/>
                 <TextBlock Text=" / "/>
-                <TextBlock Text="{Binding}"/>
+                <TextBlock Text="{Binding SavingGoal}"/>
             </StackPanel>
             
             <!--Notes-->
-            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Height="100" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+            <TextBlock Grid.Row="2" Text="{Binding Notes}" Grid.ColumnSpan="2" Height="100" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
             
             <!--List of transactions-->
-            <ListView Grid.Row="3" Grid.ColumnSpan="2">
+            <ListView Grid.Row="3" Grid.ColumnSpan="2" ItemsSource="{Binding Transactions}">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -47,8 +47,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding}"/>
-                            <TextBlock Text="{Binding}"/>
+                            <TextBlock Text="{Binding Date}"/>
+                            <TextBlock Text="{Binding Amount}"/>
                             <Border Height="1" Background="LightGray"/>
                         </StackPanel>
                     </DataTemplate>

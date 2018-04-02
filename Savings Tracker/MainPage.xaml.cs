@@ -68,5 +68,11 @@ namespace Savings_Tracker
         {
             goalControl.Visibility = Visibility.Visible;
         }
+
+        private void GoalListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var goal = e.ClickedItem as Goal;
+            Frame.Navigate(typeof(DetailGoalPage), goal.GoalId);
+        }
     }
 }
