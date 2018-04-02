@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="Savings_Tracker.DetailGoalPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Savings_Tracker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer Background="white" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Goal Name-->
+            <TextBlock Text="Name:"/>
+            <TextBlock Grid.Column="1" Text="{Binding}"/>
+            
+            <!--goal amounts and total-->
+            <TextBlock Grid.Row="1" Text="Total:"/>
+            <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBlock Text="{Binding}"/>
+                <TextBlock Text=" / "/>
+                <TextBlock Text="{Binding}"/>
+            </StackPanel>
+            
+            <!--Notes-->
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Height="100" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+            
+            <!--List of transactions-->
+            <ListView Grid.Row="3" Grid.ColumnSpan="2">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding}"/>
+                            <TextBlock Text="{Binding}"/>
+                            <Border Height="1" Background="LightGray"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </ScrollViewer>
+</Page>
