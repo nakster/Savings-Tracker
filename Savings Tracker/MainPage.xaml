@@ -59,19 +59,24 @@
                         </FlyoutBase.AttachedFlyout>
                         <!--name of the goal-->
 
+                        <StackPanel Orientation="Vertical" Grid.Column="0">
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
                         
-                        <TextBlock Text="Goal Name: "/>
-                        <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                        
                         <!--last updated-->
-                        <TextBlock Margin="0,10,0,0" Grid.Row="1" Text="Last Updated: "/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Date}"/>
+                        <!--<TextBlock Margin="0,10,0,0" Grid.Row="1" Text="Last Updated: "/>-->
+                        <StackPanel Grid.Column="3">
+                            <TextBlock Text="{Binding Date}"/>
+                        </StackPanel>
+                      
                            <!--progress bar-->
                         <ProgressBar Margin="0,10,0,10" Grid.Row="2" Value="{Binding Balance, Converter={StaticResource DecimalInt}}" Maximum="{Binding SavingGoal, Converter={StaticResource DecimalInt}}" Grid.ColumnSpan="4" IsIndeterminate="False" Height="10" />
 
-                        <Button Background="AliceBlue" Grid.Row="3" Grid.Column="0" Content="Add" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
-                        <Button Background="AliceBlue" Grid.Row="3" Grid.Column="1" Content="Decrease" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
-                        <Button Background="AliceBlue" Grid.Row="3" Grid.Column="2" Content="Edit" Command="{Binding DataContext.EditButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
-                        <Button Background="AliceBlue" Grid.Row="3" Grid.Column="3" Content="Delete" Command="{Binding DataContext.DeleteButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
+                        <Button Background="LightGray" Grid.Row="3" Grid.Column="0" Content="Add" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
+                        <Button Background="LightGray" Grid.Row="3" Grid.Column="1" Content="Decrease" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
+                        <Button Background="LightGray" Grid.Row="3" Grid.Column="2" Content="Edit" Command="{Binding DataContext.EditButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
+                        <Button Background="LightGray" Grid.Row="3" Grid.Column="3" Content="Delete" Command="{Binding DataContext.DeleteButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

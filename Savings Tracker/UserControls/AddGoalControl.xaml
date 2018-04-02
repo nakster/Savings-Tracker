@@ -18,19 +18,19 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Row="0" Background="#ffe0b2"> 
+        <StackPanel Orientation="Vertical" Grid.Row="0" Background="AliceBlue"> 
             <TextBlock Text="Goal name: " />
-            <TextBox x:Name="GoalNameTextBox" Background="#f9f9f9" />
+            <TextBox x:Name="GoalNameTextBox" Background="#f9f9f9" PlaceholderText="Type The Name Of The Goal"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1" Background="#ffcc80">
+        <StackPanel Orientation="Vertical" Grid.Row="1" Background="AliceBlue">
             <TextBlock Text="Savings Amount: "/>
-            <TextBox x:Name="savingAmountTextBox" Background="#f9f9f9"/>
+            <TextBox x:Name="savingAmountTextBox" Background="#f9f9f9" PlaceholderText="Amout You Would Like To Save"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="2" Background="#ffcc80" >
+        <StackPanel Orientation="Vertical" Grid.Row="2" Background="AliceBlue" >
             <TextBlock Text="Notes"/>
-            <TextBox x:Name="notesTextBox" Height="100" Background="#f9f9f9"/>
+            <TextBox x:Name="notesTextBox" Height="100" Background="#f9f9f9" PlaceholderText="Type your notes here"/>
         </StackPanel>
 
         <Button Background="#f9f9f9" x:Name="saveBtn" Grid.Row="3" Content="Save" HorizontalAlignment="Left" Click="saveBtn_Click"/>
