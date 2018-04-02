@@ -71,7 +71,7 @@ namespace Savings_Tracker.UserControls
         }
 
         //this method here when clicked will return to the home page 
-        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        private async void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             //create a new goal
             var newGoal = new Goal();
@@ -80,6 +80,10 @@ namespace Savings_Tracker.UserControls
             newGoal.Notes = notesTextBox.Text;
             newGoal.Date = DateTime.Now;
             newGoal.Balance = 0;
+
+            //add a new goal to the list
+            await DataContextHelper.AddRecord<Goal>(newGoal);
+            
 
             //fire our on goal save event
             fireOneGoalSaved(newGoal);
