@@ -74,5 +74,10 @@ namespace Savings_Tracker
             var goal = e.ClickedItem as Goal;
             Frame.Navigate(typeof(DetailGoalPage), goal.GoalId);
         }
+
+        private void ListViewGrid_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+
+        }
     }
 }

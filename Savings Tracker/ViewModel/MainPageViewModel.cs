@@ -75,12 +75,20 @@ namespace Savings_Tracker.ViewModel
         public ButtonCommand TransactionButtonCommand { get; set; }
         public ButtonCommand GoalButtonCommand { get; set; }
         public ButtonCommand EditButtonCommand { get; set; }
+        public ButtonCommand DeleteButtonCommand { get; set; }
 
         public MainPageViewModel()
         {
             TransactionButtonCommand = new ButtonCommand(ChangeTransactionVisability);
             GoalButtonCommand = new ButtonCommand(ChangeGoalVisability);
             EditButtonCommand = new ButtonCommand(EditGoal);
+            DeleteButtonCommand = new ButtonCommand(DeleteGoalAsync);
+        }
+        //deletes handler
+        private async void DeleteGoalAsync(object parameter)
+        {
+            var goal = parameter as Goal;
+            await DataContextHelper.DeleteItem<Goal>(goal);
         }
 
         private void ChangeGoalVisability(object parameter)

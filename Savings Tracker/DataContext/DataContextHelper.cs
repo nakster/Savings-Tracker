@@ -103,5 +103,15 @@ namespace Savings_Tracker.DataContext
 
             return item;
         }
+
+        public async static Task DeleteItem<T>(T itemToDelete) where T : class
+        {
+            using (var db = new GoalDataContext())
+            {
+                db.Set<T>().Remove(itemToDelete);
+                await db.SaveChangesAsync();
+
+            }
+        }
     }
 }

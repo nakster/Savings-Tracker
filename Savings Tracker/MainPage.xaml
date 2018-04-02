@@ -23,7 +23,7 @@
 
         <!--list view-->
         <!--GoalList is the property in the MainPageViewModel.cs -->
-        <ListView x:Name="GoalListView" Grid.Row="0"  ItemsSource="{Binding GoalList}" IsTapEnabled="True" IsItemClickEnabled="True" ItemClick="GoalListView_ItemClick">
+        <ListView x:Name="GoalListView" IsHoldingEnabled="True" Grid.Row="0"  ItemsSource="{Binding GoalList}" IsTapEnabled="True" IsItemClickEnabled="True" ItemClick="GoalListView_ItemClick">
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -34,7 +34,7 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid x:Name="ListViewGrid" Background="Transparent" Holding="ListViewGrid_Holding">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -51,7 +51,7 @@
                         <!--create a flyout-->
                         <FlyoutBase.AttachedFlyout>
                             <Flyout>
-                                <Button Content="Delete"/>
+                                <Button Content="Delete" Command="{Binding DataContext.DeleteButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
                             </Flyout>
                         </FlyoutBase.AttachedFlyout>
                         <!--name of the goal-->
