@@ -47,8 +47,14 @@ namespace Savings_Tracker
             if(mainPageViewModel == null)
             {
                 mainPageViewModel = new MainPageViewModel();
+                mainPageViewModel.OnDeleteFinished += MainPageViewModel_OnDeleteFinished;
                 DataContext = mainPageViewModel;
             }
+        }
+
+        private void MainPageViewModel_OnDeleteFinished(object sender, EventArgs e)
+        {
+            GoalListView.ItemsSource = mainPageViewModel.GoalList;
         }
 
         private void TransactionControl_TransactionSavedFinished(object sender, EventArgs e)
