@@ -13,6 +13,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -36,7 +37,7 @@
             <TextBlock Grid.Row="2" Text="{Binding Notes}" Grid.ColumnSpan="2" Height="100" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
             
             <!--List of transactions-->
-            <ListView Grid.Row="3" Grid.ColumnSpan="2" ItemsSource="{Binding Transactions}">
+            <ListView Grid.Row="4" Grid.ColumnSpan="2" ItemsSource="{Binding Transactions}">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

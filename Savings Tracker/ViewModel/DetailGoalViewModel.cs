@@ -16,7 +16,7 @@ namespace Savings_Tracker.ViewModel
         {
             get {
                 var goal =  DataContextHelper.GetItem<Goal>(goalId);
-                goal.Transactions = DataContextHelper.GetTable<Transaction>();
+                goal.Transactions = DataContextHelper.GetTransactionByGoalId(goal.GoalId);
                 return goal;
             }            
         }

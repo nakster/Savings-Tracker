@@ -53,6 +53,14 @@ namespace Savings_Tracker.DataContext
                 return db.Set<T>().ToList();
         }
 
+        public static List<Transaction> GetTransactionByGoalId(int goalId)
+        {
+            using(var db = new GoalDataContext())
+            {
+                return db.Set<Transaction>().Where(x => x.GoalId == goalId).ToList();
+            }
+        }
+
         private static async Task AddBalance(Transaction savedTransaction)
         {
             await Task.Factory.StartNew(async () =>
