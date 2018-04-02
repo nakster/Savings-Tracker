@@ -13,14 +13,7 @@ namespace Savings_Tracker.ViewModel
 
         public void NotifyPropertyChanged(String PropertyName)
         {
-            //PropertyChangedEventHandler handler = Propertychanged;
-            //if(null != handler)
-            //{
-            //    handler(this, new PropertyChangedEventArgs(PropertyName));
-            //}
-            //or this way
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
-
         }
     }
 }

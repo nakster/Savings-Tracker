@@ -53,16 +53,18 @@ namespace Savings_Tracker.UserControls
             }
         }
 
-        private static void SetFields(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        public static void SetFields(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            if(((GoalAction)e.NewValue) == GoalAction.Update)
+            if (((GoalAction)e.NewValue) == GoalAction.Update)
             {
                 var goalControlClass = o as AddGoalControl;
-                var goal = DataContextHelper.GetItem<Goal>(goalControlClass.GoalId);
 
-                goalControlClass.GoalNameTextBox.Text = goal.Name;
-                goalControlClass.notesTextBox.Text = goal.Notes;
-                goalControlClass.savingAmountTextBox.Text = goal.SavingGoal.ToString();
+                var Goal = DataContextHelper.GetItem<Goal>(goalControlClass.GoalId);
+
+                goalControlClass.GoalNameTextBox.Text = Goal.Name;
+                goalControlClass.notesTextBox.Text = Goal.Notes;
+                goalControlClass.savingAmountTextBox.Text = Goal.SavingGoal.ToString();
+                
             }
         }
         public AddGoalControl()

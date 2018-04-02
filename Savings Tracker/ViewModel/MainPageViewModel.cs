@@ -85,6 +85,7 @@ namespace Savings_Tracker.ViewModel
 
         private void ChangeGoalVisability(object parameter)
         {
+            this.GoalAction = GoalAction.Create;
             ShowGoalControl = true;
         }
 

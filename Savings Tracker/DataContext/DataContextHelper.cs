@@ -32,7 +32,8 @@ namespace Savings_Tracker.DataContext
         {
             using (var db = new GoalDataContext())
             {
-                var goal = db.Goals.FirstOrDefault(x => x.GoalId == UpdatedGoal.GoalId);
+                var goals = await db.Goals.ToListAsync();
+                var goal = goals.FirstOrDefault(x => x.GoalId == UpdatedGoal.GoalId);
 
                 if (goal != null)
                 {
@@ -89,7 +90,7 @@ namespace Savings_Tracker.DataContext
             var item = default(T);
             using (var db = new GoalDataContext())
             {
-                db.Set<T>().ToList().FirstOrDefault(x => ((ITableItem)x).GetId() == id);
+               item = db.Set<T>().ToList().FirstOrDefault(x => ((ITableItem)x).GetId() == id);
             }
 
             return item;

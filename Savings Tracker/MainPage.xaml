@@ -67,12 +67,12 @@
         <!--ommandbar-->
         <!--ClosedDisplayMode minimal means its hidden ...-->
         <CommandBar Grid.Row="1" ClosedDisplayMode="Minimal" Background="#428bca">
-            <AppBarButton Icon="Add" x:Name="AppBarAddButton" Label="Add" Click="AppBarAddButton_Click" />
+            <AppBarButton Icon="Add" x:Name="AppBarAddButton" Label="Add" Command="{Binding GoalButtonCommand}" />
         </CommandBar>
 
         <!--mode two ways means that it turns it into false when collapsed -->
-        <cc:AddGoalControl x:Name="goalControl" Action="{Binding GoalAction}" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="Collapsed"/>
+        
         <cc:AddTransactionControl x:Name="TransactionControl" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="{Binding ShowTransactionControl, Converter={StaticResource BoolVisability}, Mode=TwoWay}"/>
-
+        <cc:AddGoalControl x:Name="goalControl" Action="{Binding GoalAction}" GoalId="{Binding GoalId}" Grid.RowSpan="2" Visibility="{Binding ShowGoalControl, Converter={StaticResource BoolVisability}, Mode=TwoWay}"/>
     </Grid>
 </Page>
