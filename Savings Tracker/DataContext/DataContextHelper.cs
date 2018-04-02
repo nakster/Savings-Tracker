@@ -28,7 +28,7 @@ namespace Savings_Tracker.DataContext
 
         }
 
-        public static async void UpdateGoal(Goal UpdatedGoal)
+        public static async Task UpdateGoal(Goal UpdatedGoal)
         {
             using (var db = new GoalDataContext())
             {

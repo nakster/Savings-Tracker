@@ -22,7 +22,7 @@ namespace Savings_Tracker.UserControls
 {
     public sealed partial class AddGoalControl : UserControl
     {
-        public event EventHandler<Goal> OnGoalSaved;
+        public event EventHandler OnGoalSaved;
 
 
         private static readonly DependencyProperty GoalIdProperty = DependencyProperty.Register("GoalId", typeof(int), typeof(AddGoalControl), null);
@@ -73,20 +73,32 @@ namespace Savings_Tracker.UserControls
         //this method here when clicked will return to the home page 
         private async void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            //create a new goal
-            var newGoal = new Goal();
-            newGoal.Name = GoalNameTextBox.Text;
-            newGoal.SavingGoal = Convert.ToInt32(savingAmountTextBox.Text);
-            newGoal.Notes = notesTextBox.Text;
-            newGoal.Date = DateTime.Now;
-            newGoal.Balance = 0;
+            if (Action == GoalAction.Create)
+            {
+                //create a new goal
+                var newGoal = new Goal();
+                newGoal.Name = GoalNameTextBox.Text;
+                newGoal.SavingGoal = Convert.ToInt32(savingAmountTextBox.Text);
+                newGoal.Notes = notesTextBox.Text;
+                newGoal.Date = DateTime.Now;
+                newGoal.Balance = 0;
 
-            //add a new goal to the list
-            await DataContextHelper.AddRecord<Goal>(newGoal);
+                //add a new goal to the list
+                await DataContextHelper.AddRecord<Goal>(newGoal);
+            }
+            else if (Action == GoalAction.Update)
+            {
+                var goal = DataContextHelper.GetItem<Goal>(GoalId);
+                goal.Name = GoalNameTextBox.Text;
+                goal.SavingGoal = Convert.ToInt32(savingAmountTextBox.Text);
+                goal.Notes = notesTextBox.Text;
+
+               await DataContextHelper.UpdateGoal(goal);
+            }
+          
             
-
             //fire our on goal save event
-            fireOneGoalSaved(newGoal);
+            fireOneGoalSaved();
 
             cleartextBoxes();
             Visibility = Visibility.Collapsed;
@@ -106,9 +118,9 @@ namespace Savings_Tracker.UserControls
             notesTextBox.Text = string.Empty;
         }
 
-        private void fireOneGoalSaved(Goal newGoal)
+        private void fireOneGoalSaved()
         {
-            OnGoalSaved?.Invoke(null, newGoal);
+            OnGoalSaved?.Invoke(null, null);
         }
     }
 }
