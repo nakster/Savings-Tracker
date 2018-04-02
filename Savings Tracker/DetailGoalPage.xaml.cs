@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,6 +28,31 @@ namespace Savings_Tracker
         public DetailGoalPage()
         {
             this.InitializeComponent();
+            Loaded += DetailGoalPage_Loaded;
+        }
+
+        private void DetailGoalPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //this checks if you can go back or not
+            var rootFrame = Window.Current.Content as Frame;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                 rootFrame.CanGoBack ?
+                 AppViewBackButtonVisibility.Visible :
+                 AppViewBackButtonVisibility.Collapsed;
+
+            //event handler for it
+            SystemNavigationManager.GetForCurrentView().BackRequested += DetailGoalPage_BackRequested;
+        }
+
+        private void DetailGoalPage_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            var rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled= true;
+                rootFrame.GoBack();
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

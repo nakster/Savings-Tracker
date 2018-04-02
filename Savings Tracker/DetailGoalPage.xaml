@@ -22,11 +22,11 @@
             </Grid.ColumnDefinitions>
             
             <!--Goal Name-->
-            <TextBlock Text="Name:"/>
+            <TextBlock Text="Name: " FontWeight="Bold"/>
             <TextBlock Grid.Column="1" Text="{Binding Name}"/>
             
             <!--goal amounts and total-->
-            <TextBlock Grid.Row="1" Text="Total:"/>
+            <TextBlock Grid.Row="1" Text="Total: " FontWeight="Bold"/>
             <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
                 <TextBlock Text="{Binding Balance}"/>
                 <TextBlock Text=" / "/>
@@ -34,27 +34,35 @@
             </StackPanel>
             
             <!--Notes-->
-            <TextBlock Grid.Row="2" Text="{Binding Notes}" Grid.ColumnSpan="2" Height="100" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
-            
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2"   >
+                <TextBlock Text="Notes: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding Notes}" Height="100" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                <Border Height="1" Background="LightGray"/>
+            </StackPanel>
+          
             <!--List of transactions-->
-            <ListView Grid.Row="4" Grid.ColumnSpan="2" ItemsSource="{Binding Transactions}">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" >
+                <TextBlock Text="Previous Transactions" FontWeight="Bold"/>
+                <ListView ItemsSource="{Binding Transactions}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
 
-                    </Style>
-                </ListView.ItemContainerStyle>
+                        </Style>
+                    </ListView.ItemContainerStyle>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Date}"/>
-                            <TextBlock Text="{Binding Amount}"/>
-                            <Border Height="1" Background="LightGray"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,5,0,0">
+                                <TextBlock Text="{Binding Date}"/>
+                                <TextBlock Text="{Binding Amount}"/>
+                                <Border Height="1" Background="LightGray"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            
 
         </Grid>
     </ScrollViewer>
