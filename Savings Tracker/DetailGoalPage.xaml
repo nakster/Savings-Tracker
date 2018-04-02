@@ -20,19 +20,24 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            <!--Goal Name-->
-            
-            <StackPanel>
+
+            <StackPanel Grid.ColumnSpan="2">
                 <Border Background="Black" Height="2"/>
+            </StackPanel>
+
+            <!--Goal Name-->
+            <StackPanel Background="AliceBlue" Grid.Row="0">
                 <TextBlock Text="Name: " FontWeight="Bold"/>
-                <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+            </StackPanel>
+            <StackPanel Background="AliceBlue" Grid.Row="0"  Grid.Column="1" Orientation="Horizontal">
+                <TextBlock Text="{Binding Name }"/>
             </StackPanel>
            
-            
-            <!--goal amounts and total-->
-            <TextBlock Grid.Row="1" Text="Total: " FontWeight="Bold"/>
-            <StackPanel  Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <!--goal amounts and total-->           
+            <StackPanel Background="AliceBlue" Grid.Row="1">
+                <TextBlock Text="Savings: " FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Background="AliceBlue" Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
                 <TextBlock Text="{Binding Balance}"/>
                 <TextBlock Text=" / "/>
                 <TextBlock Text="{Binding SavingGoal}"/>
