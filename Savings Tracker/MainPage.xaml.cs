@@ -74,10 +74,10 @@ namespace Savings_Tracker
             var goal = e.ClickedItem as Goal;
             Frame.Navigate(typeof(DetailGoalPage), goal.GoalId);
         }
-
+        //when you hold the list down 
         private void ListViewGrid_Holding(object sender, HoldingRoutedEventArgs e)
         {
-
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
         }
     }
 }
