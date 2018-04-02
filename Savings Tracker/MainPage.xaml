@@ -24,11 +24,11 @@
         <!--list view-->
         <!--GoalList is the property in the MainPageViewModel.cs -->
         <ListView Padding="20" x:Name="GoalListView" IsHoldingEnabled="True" Grid.Row="0"  ItemsSource="{Binding GoalList}" IsTapEnabled="True" IsItemClickEnabled="True" ItemClick="GoalListView_ItemClick">
-
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                     <Setter Property="Background" Value="#f9f9f9"/>
+                    <!--<Border Background="Black" Height="3" />-->
                     
                 </Style>
             </ListView.ItemContainerStyle>
@@ -37,6 +37,7 @@
                 <DataTemplate>
                     
                     <Grid x:Name="ListViewGrid" Background="Transparent" Holding="ListViewGrid_Holding">
+                       
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -58,7 +59,7 @@
                             </Flyout>
                         </FlyoutBase.AttachedFlyout>
                         <!--name of the goal-->
-
+                       
                         <StackPanel Orientation="Vertical" Grid.Column="0">
                             <TextBlock Text="{Binding Name}"/>
                         </StackPanel>
@@ -77,9 +78,13 @@
                         <Button Background="LightGray" Grid.Row="3" Grid.Column="1" Content="Decrease" Command="{Binding DataContext.TransactionButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
                         <Button Background="LightGray" Grid.Row="3" Grid.Column="2" Content="Edit" Command="{Binding DataContext.EditButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
                         <Button Background="LightGray" Grid.Row="3" Grid.Column="3" Content="Delete" Command="{Binding DataContext.DeleteButtonCommand, ElementName=GoalListView }" CommandParameter="{Binding}"/>
+                       
                     </Grid>
+                    
                 </DataTemplate>
+               
             </ListView.ItemTemplate>
+           
         </ListView>
         <!--ommandbar-->
         <!--ClosedDisplayMode minimal means its hidden ...-->

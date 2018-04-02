@@ -22,8 +22,13 @@
             </Grid.ColumnDefinitions>
             
             <!--Goal Name-->
-            <TextBlock Text="Name: " FontWeight="Bold"/>
-            <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+            
+            <StackPanel>
+                <Border Background="Black" Height="2"/>
+                <TextBlock Text="Name: " FontWeight="Bold"/>
+                <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+            </StackPanel>
+           
             
             <!--goal amounts and total-->
             <TextBlock Grid.Row="1" Text="Total: " FontWeight="Bold"/>
@@ -34,15 +39,17 @@
             </StackPanel>
             
             <!--Notes-->
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="2"   >
-                <TextBlock Text="Notes: " FontWeight="Bold"/>
+            <StackPanel Background="AliceBlue" Grid.Row="2" Grid.ColumnSpan="2"   >
+                <Border Background="Black" Height="2" />
+                <TextBlock Text="Notes " FontWeight="Bold"/>
                 <TextBlock Text="{Binding Notes}" Height="100" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
-                <Border Height="1" Background="LightGray"/>
+                <Border Background="Black" Height="2" />
             </StackPanel>
           
             <!--List of transactions-->
             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" >
                 <TextBlock Text="Previous Transactions" FontWeight="Bold"/>
+                <Border Background="Black" Height="2" />
                 <ListView Background="#428bca" ItemsSource="{Binding Transactions}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
