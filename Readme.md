@@ -10,10 +10,10 @@
   - run the application on your local machine 
   
 ## Adding a Goal
-
+![](https://media.giphy.com/media/oy9hTX38l5iTVs5fL0/giphy.gif) 
 
 ## Deleting a Goal
-
+![](https://media.giphy.com/media/cebhLbkdc8DM0eamWn/giphy.gif)
 
 ## Edit a Goal
 
