@@ -1,6 +1,6 @@
 ## Mobile Applications Project
 ![](./images/pic1.png) 
-A UWP application that allows users to Save Goals.
+#### A UWP application that allows users to Save Goals.
 
 ## Instructions
 + Download My repo
