@@ -28,8 +28,14 @@
 ![](https://media.giphy.com/media/6GEWYvWrUDz5AiAUjJ/giphy.gif)
 
 ## Author
+Naqi Ahmad
 
 ## Technologies Used
+- C#
+- Visual studios
+- XAML
+- Github
+- SQLite
 
 
   
