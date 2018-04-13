@@ -97,7 +97,6 @@ namespace Savings_Tracker.UserControls
 
                await DataContextHelper.UpdateGoal(goal);
             }
-          
             
             //fire our on goal save event
             fireOneGoalSaved();

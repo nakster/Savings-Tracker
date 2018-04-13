@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Foreground="white" Text="Amount: " />
-        <TextBox x:Name="AmountTextBox" Background="#f9f9f9" Grid.Column="1"/>
+        <TextBox x:Name="AmountTextBox" PlaceholderText="Enter Plus-Minus number" Background="#f9f9f9" Grid.Column="1"/>
 
         <Button x:Name="ConfirmButton" Background="#f9f9f9" Click="ConfirmButton_ClickAsync"  Grid.Row="1"  Content="Confirm"/>
         <Button x:Name="CancelButton"  Background="#f9f9f9" Click="CancelButton_Click"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Content="Cancel"/>
