@@ -16,12 +16,16 @@
 ![](https://media.giphy.com/media/cebhLbkdc8DM0eamWn/giphy.gif)
 
 ## Edit a Goal
+![](https://media.giphy.com/media/1BcwOoT9Oknjavq5pm/giphy.gif)
 
 ## Add to a Goal
+![](https://media.giphy.com/media/oX9qA4oW88EFuEH8xA/giphy.gif)
 
 ## Decrease from a Goal
+![](https://media.giphy.com/media/82UVRiEeLvhlrGZepf/giphy.gif)
 
-## Inspiration
+## Show Details
+![](https://media.giphy.com/media/6GEWYvWrUDz5AiAUjJ/giphy.gif)
 
 ## Author
 
