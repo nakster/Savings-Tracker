@@ -32,7 +32,7 @@ Naqi Ahmad
 
 ## Technologies Used
 - C#
-- Visual studios
+- Visual studios 2017
 - XAML
 - Github
 - SQLite
